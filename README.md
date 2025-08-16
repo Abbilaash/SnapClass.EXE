@@ -1,14 +1,11 @@
 # SnapClass
 SnapClass is an advanced on-device edge AI solution designed for low-connectivity, high-density classroom environments. Powered by Snapdragon’s Hexagon NPU, it runs open-source large language models (LLMs), image captioning, and audio transcription entirely offline. SnapClass automates personalized learning by transcribing lectures, analyzing textbook content, and generating adaptive quizzes—bridging educational gaps in underserved regions where internet access and qualified educators are limited.
 
-## App architecture
-![Snapclass](https://github.com/user-attachments/assets/ac08564f-5530-4e68-8d1f-83d595009ebf)
-
 ### Models
 - **Whisper-small (242M params)** via "openai/whisper-small"
 - **nougat-small (247M params)** via "facebook/nougat-small"
 - **blip-image-captioning-base** via "Salesforce/blip-image-captioning-base" running parallelly with whisper-small
-- **Phi-3.5-mini-instruct (3.82B params)** via "AnythingLLM" running locally via ONNX accelerated by Snapdragon's X Elite's NPU
+- **Llama v3.2 3B (3B params)** running locally via ONNX accelerated by Snapdragon's X Elite's NPU
 
 ## Features
 - 🖼Teacher dashboard with file upload and analytics view  
@@ -19,50 +16,71 @@ SnapClass is an advanced on-device edge AI solution designed for low-connectivit
 - Fully functional offline – no internet needed  
 - Lightweight and fast inference using sentence embeddings
 
-## Setup & Usage
-### Step 1: Setup Local Hotspot (No Internet)
-We use [MyPublicWifi](https://mypublicwifi.com/publicwifi/en/index.html) to create a local area dead network
-1. Download and Install MyPublicWifi.
-2. Open the app, set:
-   - Network Access = No Internet Sharing
-   - Turn on hotspot
-3. Note the IP address shown in the app. This IP will be used to access the server from other devices.
+## Project Architecture
+```
+SnapClass/
+├── 📁 server/                    # Main application backend
+│   ├── 🚀 desktop_app.py        # Main GUI application (PyQt5/Tkinter)
+│   ├── 🌐 app.py                # Flask web server
+|   ├── 🌐 desktop_app.py
+│   ├── 🔄 trans.py              # Main processing orchestrator
+│   ├── 🎤 stt.py                # Speech-to-Text (Whisper)
+│   ├── 📄 pdf_reader.py         # PDF processing (Nougat + BLIP)
+│   ├── ❓ question_gen.py       # Question generation (LLaMA)
+│   ├── 📊 slm_analyse.py        # Student analysis (LLaMA)
+│   ├── 🛠️ utils.py              # Utility functions
+│   ├── ⚙️ setup.py              # Model downloader
+│   ├── 📁 templates/            # HTML templates
+│   ├── 🎨 static/               # CSS/JS assets
+│   ├── 📁 uploads/              # User file uploads
+│   └── 📁 output/               # Processed results
+│   ├── 📁 llama3/               # LLaMA 3.2 3B model
+│   │   ├── genie-t2t-run.exe    # Genie inference engine
+│   │   ├── genie_config.json    # Model configuration
+│   │   ├── *.bin                # Model weights (3 parts)
+│   │   └── *.dll                # Windows dependencies
+│   │
+│   ├── 📁 whisper/              # OpenAI Whisper model
+│   │   ├── model.safetensors    # Speech recognition model
+│   │   ├── tokenizer.json       # Tokenizer
+│   │   └── config.json          # Model configuration
+│   │
+│   ├── 📁 nougat/               # Nougat OCR model
+│   │   ├── model.safetensors    # Document understanding model
+│   │   ├── tokenizer.json       # Tokenizer
+│   │   └── config.json          # Model configuration
+│   │
+│   ├── 📁 blip/                 # BLIP vision model
+│   │   ├── model.safetensors    # Image understanding model
+│   │   ├── tokenizer.json       # Tokenizer
+│   │   └── config.json          # Model configuration
+│   │
+│   └── 📁 poppler/              # PDF processing utilities
+│
+└── 📋 requirements.txt           # Python dependencies
+```
 
-### Step 2:Install Python Dependencies
-1. Clone this repository
+## Setup
 ```
-git clone https://github.com/Abbilaash/SnapClass.git
-cd SnapClass
+git clone https://github.com/Abbilaash/SnapClass.EXE.git
+cd SnapClass.EXE
 ```
-2. Install requirements
+Install requirements
 ```
 pip install -r requirements.txt
 ```
-Install [AnythingLLM](https://anythingllm.com/) and activate AnythingLLM NPU to process LLM models in Qualcomm Hexagon NPU.
-Download ```Phi 3.5 Mini Instruct 4K 2.00GB``` model.
-Get you AnythingLLM Developer API from Settings>Tools>Developer API>Generate New API Key and get you workspace slug.
-Replace you API key in ```server/config.yaml``` as ```api_key: <API>``` and ```workspace_slug: <my-workspace>```
-
-### Step 3: Start the server
+Dwonload Blip, Nougat, Whisper model files
 ```
 cd server
-python app.py
+python setup.py
 ```
-Once started, the server runs locally on port ```5000```
+Download Llama 3.2 3B Instruct NPU optimised model files from [here]() and place it in the same directory like others
+If everything is set, Run the app
+```
+python desktop_app.py
+```
 
-## Access the Web Interface
-- Teacher Dashboard (same server device)
-```http://127.0.0.1:5000/admin```
-Use the IP address shown in MyPublicWifi ad access the students portal
-- Student Test Page
-```http://<IP>:5000```
-Replace <IP> with the one shown in the MyPublicWifi app after enabling the hotspot
 
-## Screenshots
-![image](https://github.com/user-attachments/assets/2f0fbba2-778e-490e-9729-7f1ab84d76c3)
-![image](https://github.com/user-attachments/assets/62445589-c787-4bc3-8acb-37f5ef56ddb2)
-![image](https://github.com/user-attachments/assets/352be7fd-1a9b-4709-97a6-7c6561eddf70)
-![image](https://github.com/user-attachments/assets/9de25358-9031-4660-be61-b9d5e269e2fd)
 
 ## Authors
 [A T Abbilaash](https://github.com/Abbilaash) - 23n201@psgtech.ac.in 
