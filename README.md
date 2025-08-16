@@ -74,7 +74,7 @@ Dwonload Blip, Nougat, Whisper model files
 cd server
 python setup.py
 ```
-Download Llama 3.2 3B Instruct NPU optimised model files from [here]() and place it in the same directory like others
+Download Llama 3.2 3B Instruct NPU optimised model files from [here](https://drive.google.com/drive/folders/1TfiNrZJoCg5KLYPmiixiKVCDCU2RyWw1?usp=sharing) and place it in the same directory like others
 If everything is set, Run the app
 ```
 python desktop_app.py
