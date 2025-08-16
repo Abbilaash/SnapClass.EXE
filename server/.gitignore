@@ -1,0 +1,10 @@
+__pycache__/
+uploads/
+output/
+poppler/
+dist/
+build/
+llama3/
+nougat/
+whisper/
+blip/
