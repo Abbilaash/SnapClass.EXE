@@ -1,0 +1,58 @@
+{
+  "app_info": {
+    "name": "SnapClass AI",
+    "publisher": "YourCompanyName",
+    "version": "1.0.0.0",
+    "description": "Advanced on-device edge AI solution for classroom environments",
+    "category": "Education",
+    "keywords": ["AI", "Education", "Classroom", "Offline", "Snapdragon", "NPU"]
+  },
+  "store_requirements": {
+    "min_os_version": "10.0.17763.0",
+    "target_device_family": "Windows.Desktop",
+    "architecture": "x64",
+    "capabilities": [
+      "runFullTrust",
+      "allowElevation",
+      "internetClient",
+      "privateNetworkClientServer",
+      "documentsLibrary",
+      "picturesLibrary",
+      "musicLibrary",
+      "videosLibrary"
+    ]
+  },
+  "file_associations": [
+    ".pdf",
+    ".mp3",
+    ".wav",
+    ".mp4",
+    ".jpg",
+    ".png"
+  ],
+  "build_settings": {
+    "pyinstaller_spec": "SnapClass.spec",
+    "output_directory": "./dist/msix",
+    "include_models": true,
+    "include_assets": true,
+    "sign_package": true
+  },
+  "assets": {
+    "store_logo": "Assets/StoreLogo.png",
+    "square_150x150": "Assets/Square150x150Logo.png",
+    "square_44x44": "Assets/Square44x44Logo.png",
+    "wide_310x150": "Assets/Wide310x150Logo.png",
+    "splash_screen": "Assets/SplashScreen.png"
+  },
+  "models": [
+    "llama3",
+    "whisper",
+    "nougat",
+    "blip",
+    "poppler"
+  ],
+  "dependencies": [
+    "templates",
+    "static"
+  ]
+}
