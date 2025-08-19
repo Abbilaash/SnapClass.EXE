@@ -1,69 +1,51 @@
-<?xml Version="1.0.0.0" encoding="UTF-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
          xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
          xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
          IgnorableNamespaces="uap rescap">
-
-  <Identity Name="SnapClass.AI"
-            Publisher="CN=SnapClassAI"
-            Version="1.0.0.0" />
-
+  <Identity Name="carrycooldude.snap-demo" Publisher="CN=EA1057B9-D3BD-4209-A236-D622D4782326" Version="1.0.3.0" ProcessorArchitecture="x64" />
   <Properties>
-    <DisplayName>SnapClass AI</DisplayName>
-    <PublisherDisplayName>Your Company Name</PublisherDisplayName>
+    <DisplayName>snap-demo</DisplayName>
+    <PublisherDisplayName>carrycooldude</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
     <Description>SnapClass is an advanced on-device edge AI solution designed for low-connectivity, high-density classroom environments. Powered by Snapdragon's Hexagon NPU, it runs open-source large language models (LLMs), image captioning, and audio transcription entirely offline.</Description>
   </Properties>
-
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="1.0.0.0" MaxVersionTested="10.0.19041.1" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
   </Dependencies>
-
   <Resources>
     <Resource Language="en-us" />
   </Resources>
-
   <Applications>
-    <Application Id="SnapClass"
-                 Executable="SnapClass.exe"
-                 EntryPoint="Windows.FullTrustApplication">
-      <uap:VisualElements
-          DisplayName="SnapClass AI"
-          Square150x150Logo="Assets\Square150x150Logo.png"
-          Square44x44Logo="Assets\Square44x44Logo.png"
-          Description="AI-powered classroom assistant"
-          BackgroundColor="transparent">
+    <Application Id="SnapClass" Executable="SnapClass.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="snap-demo"
+                          Square150x150Logo="Assets\Square150x150Logo.png"
+                          Square44x44Logo="Assets\Square44x44Logo.png"
+                          Description="AI-powered classroom assistant"
+                          BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="snapclassfiles">
+            <uap:DisplayName>SnapClass Files</uap:DisplayName>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.pdf</uap:FileType>
+              <uap:FileType>.mp3</uap:FileType>
+              <uap:FileType>.wav</uap:FileType>
+              <uap:FileType>.mp4</uap:FileType>
+              <uap:FileType>.jpg</uap:FileType>
+              <uap:FileType>.png</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
-
   <Capabilities>
     <rescap:Capability Name="runFullTrust" />
-    <rescap:Capability Name="allowElevation" />
     <Capability Name="internetClient" />
     <Capability Name="privateNetworkClientServer" />
-    <uap:Capability Name="documentsLibrary" />
-    <uap:Capability Name="picturesLibrary" />
-    <uap:Capability Name="musicLibrary" />
-    <uap:Capability Name="videosLibrary" />
   </Capabilities>
-
-  <Extensions>
-    <uap:Extension Category="windows.fileTypeAssociation">
-      <uap:FileTypeAssociation Name="snapclassfiles">
-        <uap:DisplayName>SnapClass Files</uap:DisplayName>
-        <uap:SupportedFileTypes>
-          <uap:FileType>.pdf</uap:FileType>
-          <uap:FileType>.mp3</uap:FileType>
-          <uap:FileType>.wav</uap:FileType>
-          <uap:FileType>.mp4</uap:FileType>
-          <uap:FileType>.jpg</uap:FileType>
-          <uap:FileType>.png</uap:FileType>
-        </uap:SupportedFileTypes>
-      </uap:FileTypeAssociation>
-    </uap:Extension>
-  </Extensions>
 </Package>
-
