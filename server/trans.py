@@ -3,7 +3,7 @@ import os
 import sys
 from datetime import datetime
 from stt import transcribe_audio
-from pdf_reader import PDFTextImageExtractor
+from pdf_reader2 import PDFTextImageExtractorPypdf as PDFTextImageExtractor
 
 def get_base_dir():
     """Get the correct base directory for MSIX or dev environment."""

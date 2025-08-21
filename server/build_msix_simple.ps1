@@ -1,7 +1,7 @@
 # SnapClass MSIX Build Script - Simplified Version
 param(
     [string]$Version = "1.0.0.0",
-    [string]$Publisher = "CN=YourPublisherName",
+    [string]$Publisher = "CN=SnapClass.AI",
     [string]$OutputPath = ".\dist\msix"
 )
 
@@ -28,7 +28,7 @@ Write-Host "Copying required assets and models..." -ForegroundColor Yellow
 $distPath = ".\dist\SnapClass\SnapClass"
 
 # Copy model directories
-$modelDirs = @("llama3", "whisper", "nougat", "blip", "poppler")
+$modelDirs = @("llama3", "whisper","poppler")
 foreach ($dir in $modelDirs) {
     if (Test-Path $dir) {
         Copy-Item -Path $dir -Destination $distPath -Recurse -Force

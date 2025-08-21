@@ -13,8 +13,8 @@ import queue
 FLASK_PORT = 5000
 
 def get_base_dir():
-    """Get the correct base directory for MSIX or dev environment."""
-    if getattr(sys, 'frozen', False):  # Running as MSIX/compiled
+    if getattr(sys, 'frozen', False):
+        # Use the directory next to the executable
         return os.path.dirname(sys.executable)
     return os.path.dirname(os.path.abspath(__file__))
 

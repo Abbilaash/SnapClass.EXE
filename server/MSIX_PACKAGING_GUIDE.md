@@ -127,7 +127,7 @@ cd "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64"
    - Create new app submission
 
 2. **App Information**
-   - App name: SnapClass AI
+   - App name: SnapClass.AI
    - Description: Use the description from manifest
    - Category: Education or Productivity
 

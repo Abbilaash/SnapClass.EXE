@@ -5,6 +5,6 @@ poppler/
 dist/
 build/
 llama3/
-nougat/
 whisper/
-blip/
+build_msix_simple.ps1
+lightweight.spec

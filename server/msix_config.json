@@ -1,7 +1,7 @@
 {
   "app_info": {
-    "name": "SnapClass AI",
-    "publisher": "YourCompanyName",
+    "name": "SnapClass.AI",
+    "publisher": "SnapClass.AI",
     "version": "1.0.0.0",
     "description": "Advanced on-device edge AI solution for classroom environments",
     "category": "Education",
@@ -47,8 +47,6 @@
   "models": [
     "llama3",
     "whisper",
-    "nougat",
-    "blip",
     "poppler"
   ],
   "dependencies": [

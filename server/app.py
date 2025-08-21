@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+import logging
 import socket
 import os
 from werkzeug.utils import secure_filename
@@ -13,8 +14,6 @@ import sys
 import threading
 from datetime import datetime
 
-app = Flask(__name__)
-
 def get_base_dir():
     """Get the correct base directory for MSIX or dev environment."""
     if getattr(sys, 'frozen', False):  # Running as MSIX/compiled
@@ -23,6 +22,26 @@ def get_base_dir():
 
 # Get the correct base directory
 BASE_DIR = get_base_dir()
+
+# Re-create Flask app with explicit template/static folders for frozen exe
+app = Flask(
+    __name__,
+    template_folder=os.path.join(BASE_DIR, 'templates'),
+    static_folder=os.path.join(BASE_DIR, 'static')
+)
+
+# Basic file logging (helps diagnose errors in frozen exe)
+try:
+    log_path = os.path.join(BASE_DIR, 'snapclass.log')
+    logging.basicConfig(
+        filename=log_path,
+        level=logging.INFO,
+        format='%(asctime)s %(levelname)s %(name)s: %(message)s'
+    )
+    app.logger.addHandler(logging.getLogger())
+    app.logger.setLevel(logging.INFO)
+except Exception:
+    pass
 
 # Use os.path.join for proper path handling
 app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, 'uploads')
@@ -193,7 +212,7 @@ def submit():
 @app.route("/generate_ques", methods=["POST"])
 def generate_ques():
     try:
-        print("Generating questions...")
+        print("Generating questions...",flush=True)
         para1, para2 = question_gen.read_paragraphs()
         questions = question_gen.generate_questions(para1, para2)
         questions = questions.split("\n")
@@ -339,6 +358,7 @@ def clear_all_data():
 @app.route("/analyse", methods=["GET"])
 def analyse():
     try:
+        print("[SnapClass] Analysing result...")
         analysis_result = slm_analyse.get_analysis()
         
         if not analysis_result["success"]:

@@ -85,14 +85,3 @@ def transcribe_audio(audio_path, output_dir="output"):
         f.write(full_transcription.strip())
 
     return {"text": full_transcription.strip(), "output_path": output_path}
-
-if __name__ == "__main__":
-
-    audio_file = r"C:/Users/Qualcomm/Desktop/class_audio.wav"
-    try:
-        result = transcribe_audio(audio_file)
-
-        print(f"\nTranscription saved to: {result['output_path']}")
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        sys.exit(1)
