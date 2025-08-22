@@ -1,6 +1,6 @@
-# 🎓 SnapClass - AI-Powered Educational Assistant
+# 🎓 SnapClass.AI - AI-Powered Educational Assistant
 
-SnapClass is an intelligent educational platform that combines multiple AI models to process, analyze, and generate educational content from various input sources including audio, PDFs, and text.
+SnapClass.AI is a fully Offline intelligent educational platform that combines multiple AI models to process, analyze, and generate educational content from various input sources including audio, PDFs, and text.
 
 ## 🏗️ Project Architecture
 
@@ -22,8 +22,6 @@ SnapClass/
 │   ├── 🎨 static/               # CSS/JS assets
 │   ├── 📁 uploads/              # User file uploads
 │   └── 📁 output/               # Processed results
-│
-├── 🤖 AI Models/                # AI model directories
 │   ├── 📁 llama3/               # LLaMA 3.2 3B model
 │   │   ├── genie-t2t-run.exe    # Genie inference engine
 │   │   ├── genie_config.json    # Model configuration
@@ -37,13 +35,6 @@ SnapClass/
 │   │
 │   └── 📁 poppler/              # PDF processing utilities
 │
-├── 🌐 snapclass webpage/         # Frontend React application
-│   ├── 📁 src/
-│   │   ├── components/          # React components
-│   │   ├── App.jsx              # Main application
-│   │   └── main.jsx             # Entry point
-│   └── package.json             # Node.js dependencies
-│
 └── 📋 requirements.txt           # Python dependencies
 ```
 
@@ -51,8 +42,7 @@ SnapClass/
 
 ### 🎯 **Multi-Modal AI Processing**
 - **Audio Processing**: Speech-to-text conversion using Whisper
-- **Document Processing**: PDF text extraction using Nougat
-- **Image Understanding**: Visual content analysis using BLIP
+- **Document Processing**: PDF text extraction module
 - **Text Generation**: Question generation and analysis using LLaMA 3.2
 
 ### 🖥️ **Dual Interface**
@@ -70,43 +60,33 @@ SnapClass/
 ### **Backend (Python)**
 - **Framework**: Flask (web server)
 - **GUI**: customtkinter (desktop app)
-- **AI/ML**: PyTorch, Transformers, Whisper, Nougat, BLIP
+- **AI/ML**: PyTorch, Transformers, Whisper, Llama3.2
 - **Audio**: librosa, soundfile
-- **PDF**: pdf2image, pytesseract
+- **PDF**: pytesseract, pypdf
 - **Data**: numpy, PIL, PyYAML
 
-### **Frontend (React)**
-- **Framework**: React 18
-- **Styling**: Tailwind CSS
-- **Build Tool**: Vite
-- **Components**: Modern, responsive UI
 
 ### **AI Models**
 - **LLaMA 3.2 3B**: Text generation and analysis
 - **Whisper**: Speech-to-text transcription
-- **Nougat**: Document understanding and OCR
-- **BLIP**: Visual language understanding
 
 ## 📋 Prerequisites
 
 ### **System Requirements**
 - **OS**: Windows 10/11, macOS, or Linux
+- **Processor**: Snapdragon X Elite
 - **RAM**: Minimum 8GB, Recommended 16GB+
 - **Storage**: 10GB+ free space for models
 - **GPU**: Optional but recommended for faster inference
 
 ### **Software Requirements**
 - **Python**: 3.8 - 3.11
-- **Node.js**: 18+ (for frontend development)
 - **Git**: For version control
-- **Git LFS**: For large model files
 
 ## 🚀 Installation & Setup
 
 ### **1. Clone Repository**
 ```bash
-# Clone with Git LFS
-git lfs install
 git clone https://github.com/YOUR_USERNAME/SnapClass.git
 cd SnapClass
 ```
@@ -134,20 +114,9 @@ cd server
 # Download and setup AI models
 python setup.py
 ```
-
-**Note**: This will download ~8GB of AI models. Ensure stable internet connection.
-
-### **4. Frontend Setup (Optional)**
-```bash
-# Navigate to frontend directory
-cd ../snapclass webpage
-
-# Install Node.js dependencies
-npm install
-
-# Build frontend
-npm run build
-```
+Dwonload NPU optimised Llama3.2 model [Click here](https://drive.google.com/drive/folders/1TfiNrZJoCg5KLYPmiixiKVCDCU2RyWw1?usp=drive_link)
+Download poppler from [here](https://drive.google.com/drive/folders/1Uiy7IQCcPGxjNv6xnyAoFE6zhR81HFH5?usp=sharing)
+**Note**: This will download ~5GB of AI models. Ensure stable internet connection.
 
 ## 🎯 Usage
 
@@ -155,18 +124,6 @@ npm run build
 ```bash
 cd server
 python desktop_app.py
-```
-
-### **Web Server Only**
-```bash
-cd server
-python app.py
-```
-
-### **Frontend Development**
-```bash
-cd snapclass webpage
-npm run dev
 ```
 
 ## 🔧 Configuration
@@ -177,46 +134,28 @@ npm run dev
 - **Nougat**: Settings in `server/nougat/config.json`
 - **BLIP**: Options in `server/blip/config.json`
 
-### **Server Settings**
-- **Port**: Default 5000 (configurable in `app.py`)
-- **Upload Limits**: Adjust in Flask configuration
-- **Output Paths**: Modify in `trans.py`
-
-## 📦 Building Executable
+## 📦 Building Executable and Msix
 
 ### **Using PyInstaller**
 ```bash
-# Install PyInstaller
-pip install pyinstaller
-
-# Build executable
-pyinstaller --onefile --windowed --name SnapClass desktop_app.py
-
-# Copy model folders to dist/
-xcopy "llama3" "dist\llama3\" /E /I /Y
-xcopy "whisper" "dist\whisper\" /E /I /Y
-xcopy "nougat" "dist\nougat\" /E /I /Y
-xcopy "blip" "dist\blip\" /E /I /Y
-xcopy "poppler" "dist\poppler\" /E /I /Y
+# Use MSIX build script
+.\build.ps1 -Version "1.0.0.0" -Publisher "CN=SnapClass.A"
 ```
 
 ## 🐛 Troubleshooting
-
-### **Common Issues**
 
 #### **Model Loading Errors**
 ```bash
 # Verify model files exist
 ls -la server/llama3/
 ls -la server/whisper/
-ls -la server/nougat/
-ls -la server/blip/
 ```
 
 #### **Memory Issues**
 - Reduce batch sizes in model configurations
 - Use CPU-only inference for lower memory usage
 - Close other applications to free RAM
+- Check the availability of Snapdragon NPU
 
 #### **Import Errors**
 ```bash
@@ -242,7 +181,6 @@ pip install -r requirements.txt
 
 ### **Code Style**
 - **Python**: Follow PEP 8 guidelines
-- **JavaScript**: Use ESLint configuration
 - **Documentation**: Update README for new features
 
 ## 📄 License
@@ -253,23 +191,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Meta AI**: LLaMA 3.2 model
 - **OpenAI**: Whisper speech recognition
-- **Microsoft**: Nougat document understanding
-- **Salesforce**: BLIP vision-language model
 - **Open Source Community**: Various libraries and tools
 
 ## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/SnapClass/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/YOUR_USERNAME/SnapClass/discussions)
-- **Wiki**: [Project Wiki](https://github.com/YOUR_USERNAME/SnapClass/wiki)
-
-## 🔄 Version History
-
-- **v1.0.0**: Initial release with core AI models
-- **v1.1.0**: Added desktop GUI application
-- **v1.2.0**: Web interface and React frontend
-- **v1.3.0**: Enhanced question generation and analysis
-
----
+- A T Abbilaash (abbilaashat@gmail.com)
 
 **Made with ❤️ for the educational community**
