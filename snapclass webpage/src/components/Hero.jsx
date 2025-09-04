@@ -21,7 +21,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              SnapClass –{' '}
+              SnapClass.AI –{' '}
               <span className="bg-gradient-to-r from-purple-600 to-purple-500 bg-clip-text text-transparent">
                 Bridge Learning Gap, Without Internet.
               </span>
@@ -34,12 +34,15 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-gradient-to-r from-purple-600 to-purple-500 text-white px-8 py-4 rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center font-semibold text-lg">
+              <a href="https://apps.microsoft.com/detail/9pgsd2855c8z" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-600 to-purple-500 text-white px-8 py-4 rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center font-semibold text-lg">
                 <Download className="mr-2" size={20} />
                 Download App
-              </button>
+              </a>
               
-              <button className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 font-semibold text-lg">
+              <button onClick={() => {
+                const el = document.getElementById('vision');
+                if (el) { el.scrollIntoView({ behavior: 'smooth' }); }
+              }} className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 font-semibold text-lg">
                 Learn More
               </button>
             </div>

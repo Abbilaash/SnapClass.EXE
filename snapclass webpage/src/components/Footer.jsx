@@ -12,7 +12,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-purple-500 rounded-lg flex items-center justify-center mr-3">
                 <span className="text-white font-bold text-sm">S</span>
               </div>
-              <span className="text-xl font-bold">SnapClass</span>
+              <span className="text-xl font-bold">SnapClass.AI</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               An offline AI-powered classroom assistant that makes learning accessible everywhere. 
@@ -32,14 +32,14 @@ const Footer = () => {
 
             <div className="flex space-x-4">
               <a 
-                href="mailto:team@snapclass.ai" 
+                href="mailto:abbilaashat@gmail.com" 
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-lg transition-colors duration-200 flex items-center"
               >
                 <Mail size={20} className="mr-2" />
                 <span className="text-sm">Contact Us</span>
               </a>
               <a 
-                href="https://github.com/snapclass" 
+                href="https://github.com/Abbilaash/SnapClass.EXE" 
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-lg transition-colors duration-200 flex items-center"
               >
                 <Github size={20} className="mr-2" />
@@ -55,7 +55,7 @@ const Footer = () => {
               <li><a href="#features" className="text-gray-400 hover:text-white transition-colors duration-200">Features</a></li>
               <li><a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors duration-200">How It Works</a></li>
               <li><a href="#audience" className="text-gray-400 hover:text-white transition-colors duration-200">Who Uses It</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+              <li><a href="https://apps.microsoft.com/detail/9pgsd2855c8z" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
                 Download App <ExternalLink size={14} className="ml-1" />
               </a></li>
             </ul>
@@ -66,9 +66,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li><a href="#team" className="text-gray-400 hover:text-white transition-colors duration-200">Our Team</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
-              <li><a href="mailto:support@snapclass.ai" className="text-gray-400 hover:text-white transition-colors duration-200">Support</a></li>
+              <li><a href="mailto:abbilaashat@gmail.com" className="text-gray-400 hover:text-white transition-colors duration-200">Support</a></li>
             </ul>
           </div>
         </div>
@@ -77,7 +75,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 SnapClass. All rights reserved. Built with{' '}
+              © 2025 SnapClass.AI. All rights reserved. Built with{' '}
               <Heart size={14} className="inline text-red-500" />{' '}
               for education.
             </div>

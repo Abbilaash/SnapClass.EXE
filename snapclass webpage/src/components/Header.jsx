@@ -31,7 +31,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-purple-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">S</span>
             </div>
-            <span className="ml-2 text-xl font-bold text-gray-900">SnapClass</span>
+            <span className="ml-2 text-xl font-bold text-gray-900">SnapClass.AI</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -43,9 +43,9 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <button className="bg-gradient-to-r from-purple-600 to-purple-500 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+            <a href="https://apps.microsoft.com/detail/9pgsd2855c8z" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-600 to-purple-500 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200">
               Download App
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -65,9 +65,9 @@ const Header = () => {
               <button onClick={() => scrollToSection('audience')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">Who Uses It</button>
               <button onClick={() => scrollToSection('how-it-works')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">How It Works</button>
               <button onClick={() => scrollToSection('team')} className="text-gray-700 hover:text-purple-600 transition-colors text-left">Team</button>
-              <button className="bg-gradient-to-r from-purple-600 to-purple-500 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-center">
+              <a href="https://apps.microsoft.com/detail/9pgsd2855c8z" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-600 to-purple-500 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-center">
                 Download App
-              </button>
+              </a>
             </nav>
           </div>
         )}

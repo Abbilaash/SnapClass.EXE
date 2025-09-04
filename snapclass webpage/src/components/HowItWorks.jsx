@@ -7,7 +7,7 @@ const HowItWorks = () => {
       icon: Download,
       emoji: '📱',
       title: 'Install the App',
-      description: 'Download SnapClass from your device\'s app store and complete the quick setup process.',
+      description: 'Download SnapClass.AI from your device\'s app store and complete the quick setup process.',
       details: ['Available on iOS and Android', 'Quick 2-minute setup', 'No account required']
     },
     {
@@ -38,7 +38,7 @@ const HowItWorks = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-            How to Use SnapClass
+            How to Use SnapClass.AI
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Get started in minutes and transform your learning experience with just four simple steps
@@ -119,11 +119,11 @@ const HowItWorks = () => {
           <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-3xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
             <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
-              Join thousands of students and teachers who are already using SnapClass to enhance their learning experience.
+              Join thousands of students and teachers who are already using SnapClass.AI to enhance their learning experience.
             </p>
-            <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-              Download SnapClass Now
-            </button>
+            <a href="https://apps.microsoft.com/detail/9pgsd2855c8z" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+              Download SnapClass.AI Now
+            </a>
           </div>
         </div>
       </div>

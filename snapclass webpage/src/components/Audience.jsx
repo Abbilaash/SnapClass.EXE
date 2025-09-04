@@ -38,7 +38,7 @@ const Audience = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-            Who Can Use SnapClass?
+            Who Can Use SnapClass.AI?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Designed for learners and educators at every level, in every environment
@@ -91,6 +91,43 @@ const Audience = () => {
             <div>
               <div className="text-3xl font-bold mb-2">∞</div>
               <div className="text-purple-100">Learning possibilities</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Minimum Requirements */}
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">Minimum Requirements</h3>
+            <p className="text-gray-600">Ensure your device meets the baseline specifications for the best experience</p>
+          </div>
+
+          <div className="bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-2xl p-6 border border-purple-100">
+                <div className="text-sm text-purple-600 font-semibold mb-1">Processor</div>
+                <div className="text-gray-900 font-medium">Snapdragon X Elite</div>
+              </div>
+              <div className="bg-white rounded-2xl p-6 border border-purple-100">
+                <div className="text-sm text-purple-600 font-semibold mb-1">RAM</div>
+                <div className="text-gray-900 font-medium">8 GB</div>
+              </div>
+              <div className="bg-white rounded-2xl p-6 border border-purple-100">
+                <div className="text-sm text-purple-600 font-semibold mb-1">Free Storage</div>
+                <div className="text-gray-900 font-medium">8 GB</div>
+              </div>
+              <div className="bg-white rounded-2xl p-6 border border-purple-100">
+                <div className="text-sm text-purple-600 font-semibold mb-1">Graphics</div>
+                <div className="text-gray-900 font-medium">Qualcomm Adreno X1-85</div>
+              </div>
+              <div className="bg-white rounded-2xl p-6 border border-purple-100">
+                <div className="text-sm text-purple-600 font-semibold mb-1">Operating System</div>
+                <div className="text-gray-900 font-medium">Windows 10 or higher</div>
+              </div>
+              <div className="bg-white rounded-2xl p-6 border border-purple-100">
+                <div className="text-sm text-purple-600 font-semibold mb-1">Device</div>
+                <div className="text-gray-900 font-medium">PC</div>
+              </div>
             </div>
           </div>
         </div>

@@ -45,7 +45,7 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <div 
               key={index}
-              className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center border border-purple-100"
+              className={`bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center border border-purple-100 ${index === 0 ? 'lg:col-start-2' : 'lg:col-start-3'}`}
             >
               <div className="relative mb-6">
                 <img 
